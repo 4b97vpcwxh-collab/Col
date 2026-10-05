@@ -4,7 +4,10 @@
 # 보디빌딩Pro — iPhone 네이티브 개발본 0.2
 
 SwiftUI로 만든 실제 iOS 앱 프로젝트입니다. WebView·Safari·PWA를 사용하지 않습니다.
-**이 파일은 소스 프로젝트이며 설치 파일(IPA)이 아닙니다. 현재 환경에 Mac/Xcode가 없어 Swift 컴파일·실기기 검증·서명을 아직 수행하지 못했습니다.**
+**2026-10-05 GitHub Mac 빌드에서 모델 검사와 iOS 시뮬레이터 앱 컴파일을 통과했습니다. 실제 시뮬레이터 실행·아이폰 실기기 검증·서명·IPA 배포는 아직 수행하지 않았습니다.**
+
+빌드 결과: https://github.com/4b97vpcwxh-collab/Col/actions/runs/37304593707
+검증한 코드 커밋: `104c29a49473b1e053d21129751a90abb5e6ca44`
 
 ## 이번 변경
 
@@ -26,12 +29,12 @@ SwiftUI로 만든 실제 iOS 앱 프로젝트입니다. WebView·Safari·PWA를 
 ## Mac에서 실행
 
 1. Xcode 설치 후 `BodybuildingPro.xcodeproj`를 엽니다. iOS 17 이상 대상입니다.
-2. Terminal에서 `bash scripts/check-ios.sh`를 실행합니다. 모델 검사와 서명 없는 시뮬레이터 빌드를 진행합니다. **실행 결과는 아직 없음**.
+2. Terminal에서 `bash scripts/check-ios.sh`를 실행합니다. 모델 검사와 서명 없는 시뮬레이터 빌드를 진행합니다. GitHub Mac에서 통과했습니다.
 3. Xcode에서 시뮬레이터를 선택하고 실행, `docs/VALIDATION.md`의 동작을 확인합니다.
 4. 실제 아이폰은 Signing & Capabilities에서 본인 Team을 선택하고, `com.example.bodybuildingpro`를 본인의 고유 식별자로 변경합니다. 아이폰 연결 및 필요한 Developer Mode 설정 후 Run.
 5. TestFlight 배포는 Apple Developer Program, App Store Connect 앱 등록, 서명된 Archive 및 업로드가 추가로 필요합니다. Apple 계정 암호나 인증코드를 소스/채팅에 넣지 마세요.
 
-`.github/workflows/ios-build.yml`은 Mac 빌드 검사용 구성입니다. GitHub 저장소에 올려 실행하기 전까지 실제 실행된 것이 아닙니다. 시뮬레이터 빌드는 아이폰에 설치할 수 있는 IPA가 아닙니다.
+`.github/workflows/ios-build.yml`은 Mac 빌드 검사용 구성입니다. 위 GitHub Actions 실행에서 성공했습니다. 시뮬레이터 빌드는 아이폰에 설치할 수 있는 IPA가 아닙니다.
 
 프로젝트 재생성: `python3 generate_project.py`. 외부 Swift 패키지 의존성 없음.
 
@@ -40,4 +43,4 @@ SwiftUI로 만든 실제 iOS 앱 프로젝트입니다. WebView·Safari·PWA를 
 - 실행/서명: https://developer.apple.com/documentation/xcode/running-your-app-on-simulated-or-physical-devices
 - TestFlight: https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview/
 
-실제 계정 연결과 서버 보안은 웹 테스트판 세션을 앱에 그대로 복사하는 방식으로 해결하지 않습니다. 네이티브 인증을 갖춘 서버가 필요합니다. 과거 기획 문서는 요구사항 이력이며 구현 완료 증거가 아닙니다.
+실제 계정 연결과 서버 보안은 웹 테스트판 세션을 앱에 그대로 복사하는 방식으로 해결하지 않습니다. 네이티브 인증을 갖춘 서버가 필요합니다. 

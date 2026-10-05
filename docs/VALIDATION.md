@@ -7,10 +7,20 @@
 - 빌드 셸 스크립트 bash 구문 검사.
 - ZIP 압축 무결성 검사.
 
-## 미수행 — 통과로 해석하면 안 됨
+## 실제 Mac 검사 결과 — 2026-10-05
 
-이 환경에는 Swift/iOS SDK/Xcode가 없습니다. Swift 타입 검사, 모델 테스트 실행, 시뮬레이터 빌드, 화면 렌더링, 실기기 알림·카메라·백업·복원, 서명·IPA·TestFlight 모두 미수행입니다.
-`Tests/main.swift`와 `scripts/check-ios.sh`는 Mac에서 실행할 검사 코드입니다. 통과 기록이 아닙니다.
+GitHub Actions https://github.com/4b97vpcwxh-collab/Col/actions/runs/37304593707
+코드 커밋: 104c29a49473b1e053d21129751a90abb5e6ca44
+
+- 모델 검사 실행 통과: 기록 직렬화/복원, 복제 ID 및 완료 체크 독립성, 영양 계산, 숫자 검증.
+- Xcode 26.6에서 iOS 시뮬레이터용 Debug 빌드 성공 (arm64 및 x86_64).
+- 첫 빌드의 NavigationLink 인자 오류 및 최고 중량 계산식 타입 검사 시간 초과 수정 후 재검사 통과.
+- FileDocument의 FileWrapper 공유 경고를 불변 Data 저장으로 수정.
+- AppIntents 미사용에 따른 메타데이터 추출 생략 경고만 남음.
+
+## 미수행
+
+실제 시뮬레이터 실행, 화면 렌더링 확인, 실기기 알림·카메라·백업·복원, Apple 서명·IPA·TestFlight는 아직 미수행입니다. 컴파일 성공은 모든 사용자 기능 검증을 의미하지 않습니다.
 
 ## Mac과 아이폰에서 확인할 항목
 
