@@ -46,7 +46,7 @@ struct WorkoutView: View {
                 }
                 Button("시트 추가", systemImage: "plus") { title = "오늘의 운동"; add = true }
             }
-            Section { NavigationLink("자유 타이머", systemImage: "timer") { FreeTimerView() } }
+            Section { NavigationLink { FreeTimerView() } label: { Label("자유 타이머", systemImage: "timer") } }
         }.navigationTitle("운동")
             .navigationDestination(isPresented: Binding(get: { selected != nil }, set: { if !$0 { selected = nil } })) { if let selected { WorkoutDetail(workoutID: selected) } }
             .alert("운동 시트 추가", isPresented: $add) {

@@ -7,9 +7,27 @@ extension UTType {
 
 struct BackupDocument: FileDocument {
     static var readableContentTypes: [UTType] { [.bodybuildingBackup] }
-    let wrapper: FileWrapper
-    init(wrapper: FileWrapper) { self.wrapper = wrapper }
-    init(configuration: ReadConfiguration) throws { wrapper = configuration.file }
+    private let records: Data
+    private let media: [String: Data]
+    // Cross-task document values contain immutable Data, not mutable FileWrapper instances.
+    var wrapper: FileWrapper {
+        FileWrapper(directoryWithFileWrappers: [
+            "records.json": FileWrapper(regularFileWithContents: records),
+            "media": FileWrapper(directoryWithFileWrappers: media.mapValues { FileWrapper(regularFileWithContents: $0) })
+        ])
+    }
+    init(wrapper: FileWrapper) throws {
+        guard let records = wrapper.fileWrappers?["records.json"]?.regularFileContents,
+              let entries = wrapper.fileWrappers?["media"]?.fileWrappers else { throw CocoaError(.fileReadCorruptFile) }
+        var media: [String: Data] = [:]
+        for (name, file) in entries {
+            guard BackupFiles.validName(name), let contents = file.regularFileContents else { throw CocoaError(.fileReadCorruptFile) }
+            media[name] = contents
+        }
+        self.records = records
+        self.media = media
+    }
+    init(configuration: ReadConfiguration) throws { try self.init(wrapper: configuration.file) }
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper { wrapper }
 }
 
@@ -34,7 +52,7 @@ enum BackupFiles {
             guard total <= maximumBytes else { throw NSError(domain: "Backup", code: 1, userInfo: [NSLocalizedDescriptionKey: "전체 백업은 256MB까지 지원합니다. 큰 영상은 개별 내보내기로 보관해 주세요."]) }
             files[name] = FileWrapper(regularFileWithContents: try Data(contentsOf: url))
         }
-        return BackupDocument(wrapper: FileWrapper(directoryWithFileWrappers: ["records.json": FileWrapper(regularFileWithContents: encoded), "media": FileWrapper(directoryWithFileWrappers: files)]))
+        return try BackupDocument(wrapper: FileWrapper(directoryWithFileWrappers: ["records.json": FileWrapper(regularFileWithContents: encoded), "media": FileWrapper(directoryWithFileWrappers: files)]))
     }
     static func read(_ url: URL) throws -> BackupDocument {
         let access = url.startAccessingSecurityScopedResource()
@@ -47,7 +65,7 @@ enum BackupFiles {
             if info.isRegularFile == true { total += info.fileSize ?? maximumBytes + 1 }
             guard total <= maximumBytes else { throw CocoaError(.fileReadTooLarge) }
         }
-        return BackupDocument(wrapper: try FileWrapper(url: url, options: .immediate))
+        return try BackupDocument(wrapper: try FileWrapper(url: url, options: .immediate))
     }
 }
 

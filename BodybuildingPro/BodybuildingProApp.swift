@@ -162,7 +162,7 @@ struct SettingsView: View {
             Section("내 기록") {
                 Label("이 아이폰에 자동 저장", systemImage: "iphone")
                 Text("앱을 종료해도 기록은 유지됩니다. 계정 동기화는 아직 연결되지 않았습니다.").font(.subheadline).foregroundStyle(.secondary)
-                NavigationLink("백업과 복원", systemImage: "externaldrive") { BackupView() }
+                NavigationLink { BackupView() } label: { Label("백업과 복원", systemImage: "externaldrive") }
             }
             Section("알림") {
                 Button("타이머·식단 알림 허용") { Task { do { try await NotificationService.permission() } catch { store.error = error.localizedDescription } } }

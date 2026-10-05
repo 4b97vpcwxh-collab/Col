@@ -42,8 +42,12 @@ final class Store: ObservableObject {
 
     func oneRepMax(_ lift: Lift) -> Double? {
         let manual = data.progress.filter { $0.lift == lift && $0.reps == 1 && $0.kg > 0 }.map(\.kg)
-        let logged = data.workouts.flatMap(\.exercises).filter { $0.lift == lift }.flatMap(\.sets)
-            .filter { $0.done && $0.reps == 1 && $0.kg > 0 }.map(\.kg)
+        var logged: [Double] = []
+        for workout in data.workouts {
+            for exercise in workout.exercises where exercise.lift == lift {
+                for set in exercise.sets where set.done && set.reps == 1 && set.kg > 0 { logged.append(set.kg) }
+            }
+        }
         return (manual + logged).max()
     }
 
