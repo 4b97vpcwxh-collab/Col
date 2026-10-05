@@ -1,0 +1,39 @@
+// !$*UTF8*$!
+{ archiveVersion = 1; classes = {}; objectVersion = 56; objects = {
+E63AE917030FAA189FF46475 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BackupView.swift"; sourceTree = "<group>"; };
+9D0208C5F6E8F07AD3EC2AA7 = { isa = PBXBuildFile; fileRef = E63AE917030FAA189FF46475; };
+B481C4C6BFAB356850F8CCA8 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodybuildingProApp.swift"; sourceTree = "<group>"; };
+D491D6ED619CAE466D853F24 = { isa = PBXBuildFile; fileRef = B481C4C6BFAB356850F8CCA8; };
+71DF09940E32E749B9CBE1CE = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DietView.swift"; sourceTree = "<group>"; };
+8EC48A65C0CFDD87AC70679D = { isa = PBXBuildFile; fileRef = 71DF09940E32E749B9CBE1CE; };
+78FD430803560F137BDECEE8 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models.swift"; sourceTree = "<group>"; };
+C28E3B592A560C32484F497E = { isa = PBXBuildFile; fileRef = 78FD430803560F137BDECEE8; };
+1DB361090EDFB9A8EB92CB35 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuickRecords.swift"; sourceTree = "<group>"; };
+115A9C21218A3EFA173A3149 = { isa = PBXBuildFile; fileRef = 1DB361090EDFB9A8EB92CB35; };
+CADF772F7C41FE1CBDB1993E = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Store.swift"; sourceTree = "<group>"; };
+D7FCDAA751F5C6E177E3CF5F = { isa = PBXBuildFile; fileRef = CADF772F7C41FE1CBDB1993E; };
+C4EAAB438C3B45485AC92CE3 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaultView.swift"; sourceTree = "<group>"; };
+04E7B8BFE4EF4B897EA20A3D = { isa = PBXBuildFile; fileRef = C4EAAB438C3B45485AC92CE3; };
+75E5A3B797C95655B4D7B68E = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutView.swift"; sourceTree = "<group>"; };
+AEBCAE0B14D9585B6BA46BFF = { isa = PBXBuildFile; fileRef = 75E5A3B797C95655B4D7B68E; };
+68E77A9D7BC78A97D4F4E27B = { isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info.plist"; sourceTree = "<group>"; };
+0BDFC2392C4F9A401DB5348F = { isa = PBXFileReference; lastKnownFileType = text.xml; path = "PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
+6C36FFE920F24CEDB7CFDBFC = { isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets.xcassets"; sourceTree = "<group>"; };
+716E9590E60B3AFA6E62BF18 = { isa = PBXBuildFile; fileRef = 6C36FFE920F24CEDB7CFDBFC; };
+A39309C4376B4D66A5739C05 = { isa = PBXBuildFile; fileRef = 0BDFC2392C4F9A401DB5348F; };
+38A007151ABE87CC01A5B6E9 = { isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodybuildingPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+BCE16DD0260827ECF338C787 = { isa = PBXGroup; children = (E63AE917030FAA189FF46475,B481C4C6BFAB356850F8CCA8,71DF09940E32E749B9CBE1CE,78FD430803560F137BDECEE8,1DB361090EDFB9A8EB92CB35,CADF772F7C41FE1CBDB1993E,C4EAAB438C3B45485AC92CE3,75E5A3B797C95655B4D7B68E,68E77A9D7BC78A97D4F4E27B,0BDFC2392C4F9A401DB5348F,6C36FFE920F24CEDB7CFDBFC,); path = BodybuildingPro; sourceTree = "<group>"; };
+FBDC4F23F93125BBEEAE800C = { isa = PBXGroup; children = (38A007151ABE87CC01A5B6E9,); name = Products; sourceTree = "<group>"; };
+B28B7AF69320201D1CF206EB = { isa = PBXGroup; children = (BCE16DD0260827ECF338C787,FBDC4F23F93125BBEEAE800C,); sourceTree = "<group>"; };
+D3C3E067FC1BBCCEAA4D9313 = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (9D0208C5F6E8F07AD3EC2AA7,D491D6ED619CAE466D853F24,8EC48A65C0CFDD87AC70679D,C28E3B592A560C32484F497E,115A9C21218A3EFA173A3149,D7FCDAA751F5C6E177E3CF5F,04E7B8BFE4EF4B897EA20A3D,AEBCAE0B14D9585B6BA46BFF,); runOnlyForDeploymentPostprocessing = 0; };
+BEE832DE65DB5CA7507F7EF9 = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+963488E8A773A44C9A5DC523 = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (A39309C4376B4D66A5739C05,716E9590E60B3AFA6E62BF18,); runOnlyForDeploymentPostprocessing = 0; };
+AB52CB08E0FDF02BF6C67C33 = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; SDKROOT = iphoneos; IPHONEOS_DEPLOYMENT_TARGET = 17.0; SWIFT_VERSION = 5.0; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; }; name = Debug; };
+59E1BEE911F66DA37FEBACDC = { isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = BodybuildingPro/Info.plist; PRODUCT_BUNDLE_IDENTIFIER = com.example.bodybuildingpro; PRODUCT_NAME = "$(TARGET_NAME)"; TARGETED_DEVICE_FAMILY = 1; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; ENABLE_PREVIEWS = YES; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; }; name = Debug; };
+5283471FF90C511CFE244FFF = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; SDKROOT = iphoneos; IPHONEOS_DEPLOYMENT_TARGET = 17.0; SWIFT_VERSION = 5.0; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; }; name = Release; };
+F4C425279CD5DDD18FD6DC6D = { isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = BodybuildingPro/Info.plist; PRODUCT_BUNDLE_IDENTIFIER = com.example.bodybuildingpro; PRODUCT_NAME = "$(TARGET_NAME)"; TARGETED_DEVICE_FAMILY = 1; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; ENABLE_PREVIEWS = YES; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; }; name = Release; };
+862894B703A6DEDF96A9DD6C = { isa = XCConfigurationList; buildConfigurations = (AB52CB08E0FDF02BF6C67C33,5283471FF90C511CFE244FFF,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+C57128001CE614BF8549D6BB = { isa = XCConfigurationList; buildConfigurations = (59E1BEE911F66DA37FEBACDC,F4C425279CD5DDD18FD6DC6D,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+0E8A3AD980EC179856012B7E = { isa = PBXNativeTarget; buildConfigurationList = C57128001CE614BF8549D6BB; buildPhases = (D3C3E067FC1BBCCEAA4D9313,BEE832DE65DB5CA7507F7EF9,963488E8A773A44C9A5DC523,); buildRules = (); dependencies = (); name = BodybuildingPro; productName = BodybuildingPro; productReference = 38A007151ABE87CC01A5B6E9; productType = "com.apple.product-type.application"; };
+98F54143AB4E86B28C3AFEE0 = { isa = PBXProject; attributes = { LastUpgradeCheck = 1600; }; buildConfigurationList = 862894B703A6DEDF96A9DD6C; compatibilityVersion = "Xcode 14.0"; developmentRegion = ko; hasScannedForEncodings = 0; knownRegions = (ko,en,Base,); mainGroup = B28B7AF69320201D1CF206EB; productRefGroup = FBDC4F23F93125BBEEAE800C; projectDirPath = ""; projectRoot = ""; targets = (0E8A3AD980EC179856012B7E,); };
+}; rootObject = 98F54143AB4E86B28C3AFEE0; }

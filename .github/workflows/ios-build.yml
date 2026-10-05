@@ -1,0 +1,28 @@
+name: iOS compile check
+on:
+  workflow_dispatch:
+  push:
+    paths: ['BodybuildingPro/**', 'Tests/**', 'scripts/**', 'BodybuildingPro.xcodeproj/**', '.github/workflows/ios-build.yml']
+permissions:
+  contents: read
+concurrency:
+  group: ios-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile model checks and iOS Simulator app
+        run: bash scripts/check-ios.sh
+      - name: Preserve build log and simulator app
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-simulator-build
+          path: |
+            build/build.log
+            build/DerivedData/Build/Products/Debug-iphonesimulator/BodybuildingPro.app
+          if-no-files-found: ignore
+          retention-days: 7
